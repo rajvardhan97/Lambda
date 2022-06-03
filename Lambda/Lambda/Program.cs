@@ -19,19 +19,25 @@ namespace Lambda
             Console.WriteLine("Retrieve top 2 records with age less than 60");
             foreach (Person p in PeopleList.FindAll(e => (e.age < 60)).Take(2).ToList())
             {
-                Console.WriteLine("Name: " + p.name + " Age: " + p.age + "\n");
+                Console.WriteLine("Name: " + p.name + " Age: " + p.age);
             }
 
-            Console.WriteLine("Retrieve all record with age between 13 & 18 \n");
+            Console.WriteLine("\nRetrieve all record with age between 13 & 18");
             foreach (Person p in PeopleList.FindAll(e => (e.age >= 13 && e.age <= 18)).ToList())
             {
                 Console.WriteLine("Name: " + p.name);
             }
 
-            Console.WriteLine("Retrieve average age in the list\n");
+            Console.WriteLine("\nRetrieve average age in the list");
             double Average = PeopleList.Average(e => e.age);
             Console.WriteLine("Average Age is: " + Average);
 
+            Console.WriteLine("\nCheck for specific name present in the list or not");
+            string NAME = Console.ReadLine();
+            if (PeopleList.Exists(e => e.name == NAME))
+            {
+                Console.WriteLine(NAME + " Exist in the list");
+            }
         }
     }
 }
