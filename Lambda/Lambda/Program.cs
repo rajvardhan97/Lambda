@@ -40,9 +40,19 @@ namespace Lambda
             }
 
             Console.WriteLine("\nSkip record from the list for age is less than 60");
-            foreach(Person person in PeopleList.SkipWhile(e => e.age < 60))
+            foreach (Person person in PeopleList.SkipWhile(e => e.age < 60))
             {
                 Console.WriteLine("Name: " + person.name + " Age: " + person.age);
+            }
+
+
+            Console.WriteLine("\nRemove specific name from the list");
+            string Name = Console.ReadLine();
+            int list = PeopleList.RemoveAll(x => x.name.Contains(Name));
+            Console.WriteLine("Remaning records are: ");
+            foreach(Person person1 in PeopleList)
+            {
+                Console.WriteLine(person1.name);
             }
         }
     }
