@@ -15,6 +15,11 @@ namespace Lambda
             PeopleList.Add(new Person(21, "Arpita", "UK", 77));
             PeopleList.Add(new Person(5, "Shantanu", "Bihar", 62));
             PeopleList.Add(new Person(4, "Raj", "HP", 22));
+
+            foreach (Person p in PeopleList.FindAll(e => (e.age < 60)).Take(2).ToList())
+            {
+                Console.WriteLine("Name: " + p.name + " Age: " + p.age);
+            }
         }
     }
 }
